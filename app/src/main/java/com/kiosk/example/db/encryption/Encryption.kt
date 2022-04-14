@@ -1,4 +1,4 @@
-package com.kiosk.example.db.decryption
+package com.kiosk.example.db.encryption
 
 import android.content.Context
 import android.os.Build
@@ -7,7 +7,6 @@ import androidx.annotation.RequiresApi
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
-import com.kiosk.example.db.encryption.Storable
 import java.security.AlgorithmParameters
 import java.security.SecureRandom
 import java.security.spec.KeySpec
