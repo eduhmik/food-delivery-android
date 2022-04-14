@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Kiosk</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="shop">Shop</string>
+    <string name="about_us">About Us</string>
+    <string name="notification">Notifications</string>
+    <string name="view_profile">View Profile</string>
+    <string name="welcome_navigation_example_application">Welcome \nNavigation Example Application</string>
+    <string name="notification_fragment">Notification Fragment</string>
+    <string name="cart_fragment">Cart Fragment</string>
+    <string name="cart_detail">Cart Detail</string>
+    <string name="view_product_with_arguments">View Product with arguments</string>
+    <string name="profile_fragment">Profile</string>
+    <string name="product_detail">Product Details</string>
+    <string name="string_count">Total Products Count</string>
+    <string name="name_lable">Product Name -</string>
+    <string name="add_product">Products</string>
+    <string name="password">Password</string>
+    <string name="login">Enter</string>
+</resources>

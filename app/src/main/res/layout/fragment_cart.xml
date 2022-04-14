@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+
+  <TextView
+      android:id="@+id/tv_details"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="start"
+      android:text="@string/cart_detail"
+      android:textSize="17sp"
+      />
+
+  <Button
+      android:id="@+id/buttonViewProduct"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="start"
+      android:background="@color/colorAccent"
+      android:textColor="@color/white"
+      android:layout_marginTop="@dimen/margin_large"
+      android:gravity="center"
+      android:text="@string/view_product_with_arguments"
+      />
+</LinearLayout>

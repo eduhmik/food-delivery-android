@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_destination">
+
+  <fragment
+      android:id="@+id/home_destination"
+      android:name="com.kiosk.example.fragments.HomeFragment"
+      android:label="Home"
+      tools:layout="@layout/fragment_home">
+    <action
+        android:id="@+id/next_action"
+        app:destination="@id/notification_destination" />
+  </fragment>
+
+  <fragment
+      android:id="@+id/notification_destination"
+      android:name="com.kiosk.example.fragments.NotificationFragment"
+      android:label="Notification"
+      tools:layout="@layout/fragment_notification" >
+    <action
+        android:id="@+id/action_notification_destination_to_home_destination2"
+        app:destination="@id/home_destination" />
+  </fragment>
+  <fragment
+
+      android:id="@+id/profile_destination"
+      android:name="com.kiosk.example.fragments.ProfileFragment"
+      android:label="Home"
+      tools:layout="@layout/fragment_profile">
+    <argument
+        android:name="productCount"
+        android:defaultValue="0"
+        app:argType="integer" />
+  </fragment>
+
+  <fragment
+      android:id="@+id/cart_destination"
+      android:name="com.kiosk.example.fragments.CartFragment"
+      android:label="Cart"
+      tools:layout="@layout/fragment_cart">
+    <action
+        android:id="@+id/next_action"
+        app:destination="@+id/product_destination" />
+  </fragment>
+
+  <fragment
+      android:id="@+id/product_destination"
+      android:name="com.kiosk.example.fragments.ProductFragment"
+      android:label="Product"
+      tools:layout="@layout/fragment_product">
+
+    <argument
+        android:name="product_name"
+        app:argType="string"
+        app:nullable="true" />
+    <argument
+        android:name="amount"
+        app:argType="float"
+        android:defaultValue="0.0" />
+    <argument
+        android:name="item_count"
+        app:argType="integer"
+        android:defaultValue="0" />
+  </fragment>
+
+
+</navigation>
