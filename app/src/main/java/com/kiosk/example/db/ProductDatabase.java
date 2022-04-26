@@ -10,7 +10,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
 import com.kiosk.example.db.encryption.Encryption;
+import com.kiosk.example.db.encryption.EncryptionJava;
 
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SupportFactory;
