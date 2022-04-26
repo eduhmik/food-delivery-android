@@ -1,8 +1,10 @@
 package com.kiosk.example.viewmodal;
 
 import android.app.Application;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
@@ -10,6 +12,9 @@ import com.kiosk.example.db.ProductModal;
 import com.kiosk.example.db.ProductRepository;
 
 import java.util.List;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 
 public class ViewModal extends AndroidViewModel {
     // creating a new variable for course repository.
@@ -20,7 +25,8 @@ public class ViewModal extends AndroidViewModel {
     private LiveData<List<ProductModal>> allProducts;
 
     // constructor for our view modal.
-    public ViewModal(@NonNull Application application) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public ViewModal(@NonNull Application application) throws IllegalBlockSizeException, BadPaddingException {
         super(application);
         repository = new ProductRepository(application);
         allProducts = repository.getAllProducts();

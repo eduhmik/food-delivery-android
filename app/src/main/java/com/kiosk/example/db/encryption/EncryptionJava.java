@@ -66,7 +66,7 @@ public abstract class EncryptionJava {
         return res.toString().toCharArray();
     }
 
-    public  void createNewKey() {
+    public static void createNewKey() {
         // This is the raw key that we'll be encrypting + storing
         rawByteKey = generateRandomKey();
         // This is the key that will be used by Room
@@ -74,13 +74,13 @@ public abstract class EncryptionJava {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void persistRawKey(Context context, char[] userPasscode) {
+    public static void persistRawKey(Context context, char[] userPasscode) {
         Storable storable =  toStorable(rawByteKey, userPasscode);
         // Implementation explained in next step
         saveToPrefs(context, storable);
     }
 
-    private void saveToPrefs(Context context, Storable storable) {
+    private static void saveToPrefs(Context context, Storable storable) {
         String gson = new Gson().toJson(storable);
         SharedPreferences preferences = context.getSharedPreferences(
                 "database",
@@ -90,7 +90,7 @@ public abstract class EncryptionJava {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    protected Storable toStorable(byte[] rawDbKey, char[] userPasscode) {
+    protected static Storable toStorable(byte[] rawDbKey, char[] userPasscode) {
         byte[] salt = new byte[32];
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             try {
@@ -132,7 +132,7 @@ public abstract class EncryptionJava {
         );
     }
 
-    private SecretKey generateSecretKey(char[] userPasscode, byte[] salt) {
+    private static SecretKey generateSecretKey(char[] userPasscode, byte[] salt) {
         // Initialize PBE with password
         SecretKey tmp = null;
         try {
@@ -147,7 +147,7 @@ public abstract class EncryptionJava {
     }
 
     // Decryption
-    private Storable getStorable(Context context) {
+    private static Storable getStorable(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(
                 "database",
                 Context.MODE_PRIVATE
@@ -165,7 +165,7 @@ public abstract class EncryptionJava {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private byte[] getRawByteKey(char[] passcode, Storable storable) throws IllegalBlockSizeException, BadPaddingException {
+    private static byte[] getRawByteKey(char[] passcode, Storable storable) throws IllegalBlockSizeException, BadPaddingException {
         Cipher cipher = null;
         byte[] aesWrappedKey = new byte[0];
         try {
@@ -188,15 +188,15 @@ public abstract class EncryptionJava {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private char[] getCharKey(char[] passcode, Context context) throws IllegalBlockSizeException, BadPaddingException {
-        if (dbCharKey.length == 0) {
+    public static char[] getCharKey(char[] passcode, Context context) throws IllegalBlockSizeException, BadPaddingException {
+        if (dbCharKey == null) {
             initKey(passcode, context);
         }
         return dbCharKey;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void initKey(char[] passcode, Context context) throws IllegalBlockSizeException, BadPaddingException {
+    private static void initKey(char[] passcode, Context context) throws IllegalBlockSizeException, BadPaddingException {
         Storable storable = getStorable(context);
         if (storable == null) {
             createNewKey();

@@ -17,6 +17,9 @@ import com.kiosk.example.db.encryption.EncryptionJava;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SupportFactory;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+
 //import com.navigation.example.db.encryption.EncryptDatabase;
 
 @Database(entities = {ProductModal.class}, version = 1)
@@ -32,7 +35,7 @@ public abstract class ProductDatabase extends RoomDatabase {
 
     // on below line we are getting instance for our database.
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static synchronized ProductDatabase getInstance(Context context) {
+    public static synchronized ProductDatabase getInstance(Context context) throws IllegalBlockSizeException, BadPaddingException {
         // below line is to check if
         // the instance is null or not.
         if (instance == null) {
@@ -40,7 +43,7 @@ public abstract class ProductDatabase extends RoomDatabase {
             // are creating a new instance
             String passcode = "password";
             final char[] password = passcode.toCharArray();
-            char[] dbKey = Encryption.Companion.getCharKey(password, context);
+            char[] dbKey = EncryptionJava.getCharKey(password, context);
             SupportFactory supportFactory = new SupportFactory(SQLiteDatabase.getBytes(dbKey));
             instance =
                     // for creating a instance for our database

@@ -2,10 +2,15 @@ package com.kiosk.example.db;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 
 public class ProductRepository {
     // below line is the create a variable 
@@ -15,7 +20,8 @@ public class ProductRepository {
 
     // creating a constructor for our variables
     // and passing the variables to it.
-    public ProductRepository(Application application) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public ProductRepository(Application application) throws IllegalBlockSizeException, BadPaddingException {
         ProductDatabase database = ProductDatabase.getInstance(application);
         dao = database.Dao();
         allProducts = dao.getAllProducts();
