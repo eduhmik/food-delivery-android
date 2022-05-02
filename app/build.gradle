@@ -2,6 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.chrisney.enigma'
+
+enigma.enabled = true
+enigma.injectFakeKeys = true
+
+/* Optional */
+enigma.hash = "LXeyH4qdtk2YqNDnLqZzX5HmPEwEwZEN"
+enigma.ignoredClasses = ["com.kiosk.example.MainActivity.java", "com.kiosk.example.SplashActivity.java", "com.kiosk.example.ProductActivity.java"]
+enigma.classes = ["com.kiosk.example.ProductActivity.java", "com.kiosk.example.db.ProductDatabase.java"]
+//enigma.srcJava = "/app/src/main/java"
 
 android {
   compileSdkVersion 31
@@ -16,7 +26,7 @@ android {
   }
   buildTypes {
     release {
-      minifyEnabled false
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
