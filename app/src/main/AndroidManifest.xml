@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kiosk.example">
+    package="com.food.delivery">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JobFinder.NoActionBar">
         <activity
-            android:name=".PwdActivity"
+            android:name="com.food.delivery.PwdActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.food.delivery.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProductActivity"
+            android:name="com.food.delivery.ProductActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.food.delivery.MainActivity"
             android:exported="true"/>
         <provider
             android:name="androidx.core.content.FileProvider"

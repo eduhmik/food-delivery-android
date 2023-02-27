@@ -7,7 +7,7 @@
 
   <fragment
       android:id="@+id/home_destination"
-      android:name="com.kiosk.example.fragments.HomeFragment"
+      android:name="com.food.delivery.fragments.HomeFragment"
       android:label="Home"
       tools:layout="@layout/fragment_home">
     <action
@@ -17,7 +17,7 @@
 
   <fragment
       android:id="@+id/notification_destination"
-      android:name="com.kiosk.example.fragments.NotificationFragment"
+      android:name="com.food.delivery.fragments.NotificationFragment"
       android:label="Notification"
       tools:layout="@layout/fragment_notification" >
     <action
@@ -27,7 +27,7 @@
   <fragment
 
       android:id="@+id/profile_destination"
-      android:name="com.kiosk.example.fragments.ProfileFragment"
+      android:name="com.food.delivery.fragments.ProfileFragment"
       android:label="Home"
       tools:layout="@layout/fragment_profile">
     <argument
@@ -38,7 +38,7 @@
 
   <fragment
       android:id="@+id/cart_destination"
-      android:name="com.kiosk.example.fragments.CartFragment"
+      android:name="com.food.delivery.fragments.CartFragment"
       android:label="Cart"
       tools:layout="@layout/fragment_cart">
     <action
@@ -48,7 +48,7 @@
 
   <fragment
       android:id="@+id/product_destination"
-      android:name="com.kiosk.example.fragments.ProductFragment"
+      android:name="com.food.delivery.fragments.ProductFragment"
       android:label="Product"
       tools:layout="@layout/fragment_product">
 
